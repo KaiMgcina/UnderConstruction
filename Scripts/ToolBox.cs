@@ -11,18 +11,18 @@ public class ToolBox : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        // optional: freeze X/Z rotation if you want it to roll only around Y visually
+       
     }
 
     void FixedUpdate()
     {
-        // Calculate horizontal direction toward player
+       
         Vector3 direction = new Vector3(0, 0, -1); // move forward along Z
         Vector3 targetPos = rb.position + direction * glideSpeed * Time.fixedDeltaTime;
 
         rb.MovePosition(targetPos);
 
-        // Add torque for visual roll
+       
         rb.AddTorque(Vector3.left * rollForce);
     }
 
